@@ -1,1 +1,408 @@
-<!doctype html><html lang=en><head><meta charset=UTF-8><meta name=viewport content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1"><meta http-equiv=X-UA-Compatible content="ie=edge"><link rel="shortcut icon" href=/static/favicon.ico><title>廖祥莱</title><link href=/static/css/app.c64eadfc8d3abfc9d85514dba4054813.css rel=stylesheet><meta name="generator" content="Hexo 4.2.1"></head><body><div id=app></div><script type=text/javascript src=/static/js/manifest.992b63bf2abbf3194771.js></script><script type=text/javascript src=/static/js/vendor.e12dc8c9af1f7aa12436.js></script><script type=text/javascript src=/static/js/app.bc036f9167871d39aecf.js></script></body></html>
+<!DOCTYPE HTML>
+<html class="no-js" lang="zh-CN">
+<head>
+    <!--[if lte IE 9]>
+<meta http-equiv="refresh" content="0;url=http://fgghost.fgghost.github.io/warn.html">
+<![endif]-->
+<meta charset="utf-8">
+<meta http-equiv="X-DNS-Prefetch-Control" content="on">
+<link rel="dns-prefetch" href="http://fgghost.fgghost.github.io">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<link rel="prefetch" href="http://fgghost.fgghost.github.io">
+<link rel="prefetch" href="//www.google-analytics.com">
+
+
+<link rel="prerender" href="http://fgghost.fgghost.github.io">
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta http-equiv="mobile-agent" content="format=html5; url=http://fgghost.fgghost.github.io">
+<meta name="author" content="Liao Xianglai">
+
+<link rel="stylesheet" href="/css/JSimple.css">
+
+
+<link rel="shortcut icon" href="/images/favicon.png">
+
+
+<title>pytorch笔记——i - 廖祥莱</title>
+
+<meta name="keywords" content="">
+
+<meta name="description " content="">
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                processEscapes: true
+            }
+        });
+    </script>
+
+
+    
+
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+<div id="nav">
+    <nav class="nav-menu">
+        <a class="site-name current" href="/" title="说">说</a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>Home</span></a>
+        <a href="/archives" title="Archives"><i class="fa fa-archives"></i><span>Archives</span></a>
+        <a href="/tags" title="Tags"><i class="fa fa-tags"></i><span>Tags</span></a>
+        <!-- custom single page of menus -->
+        
+        
+        <a href="/help" title="帮助">
+            <i class="fa fa-question-circle"></i>
+            <span>帮助</span>
+        </a>
+        
+    </nav>
+</div>
+
+<div class="nav-user">
+    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
+    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
+    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-telegram"></i></a>
+</div>
+
+<div id="wrapper" class="clearfix">
+    <div id="body">
+        <div class="main" id="main">
+            <div id="cover">
+    <div class="cover-img"></div>
+    <div class="cover-info">
+        
+        <h1 class="cover-siteName">说IT</h1>
+        <h3 class="cover-siteTitle">用代码摇滚这个世界</h3>
+        <p class="cover-siteDesc">一个关注技术与人文的IT博客</p>
+        <div class="cover-sns">
+            
+    &nbsp;&nbsp;<div class="btn btn-telegram">
+        <a href="http://t.me/kunyintang" target="_blank" title="telegram" ref="friend">
+            <i class="fa fa-telegram"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-instagram">
+        <a href="https://www.instagram.com/mtangsir/" target="_blank" title="instagram" ref="friend">
+            <i class="fa fa-instagram"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-twitter">
+        <a href="https://twitter.com/tangkunyin" target="_blank" title="twitter" ref="friend">
+            <i class="fa fa-twitter"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-github">
+        <a href="https://github.com/tangkunyin" target="_blank" title="github" ref="friend">
+            <i class="fa fa-github"></i>
+        </a>
+    </div>
+
+
+        </div>
+    </div>
+</div>
+
+            <div class="page-title">
+    <ul>
+        <li><a href="/">Recent Posts</a></li>
+        
+        
+        
+        <li class="page-search">
+    <form id="search" class="search-form">
+        <input type="text"
+               readonly="readonly"
+               id="local-search-input-tip"
+               placeholder="click to search..." />
+        <button type="button" disabled="disabled" class="search-form-submit"><i class="fa fa-search"></i></button>
+    </form>
+</li>
+
+    </ul>
+</div>
+<div class="main-inner">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="https://shuoit.net"
+                   target="_blank">
+                    <img width="48" src="/images/favicon.png" alt="avatar"/>
+                </a>
+                <p><span class="label">Author</span>
+                    <a href="https://shuoit.net"
+                       target="_blank">纠结伦</a>
+                    <span title="Last edited at&nbsp;2020-07-26">2020-07-26</span>
+                </p>
+                <p>一个搬🧱的劳斯基😁️️</p>
+            </div>
+            <h2 class="post-title">pytorch笔记——I</h2>
+            <div class="post-meta">
+                emm... 7015 words in the article |
+                you are the&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>th friend who reading now
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <h1 id="Pytorch笔记1"><a href="#Pytorch笔记1" class="headerlink" title="Pytorch笔记1"></a>Pytorch笔记1</h1><h2 id="1-张量"><a href="#1-张量" class="headerlink" title="1. 张量"></a>1. 张量</h2><h3 id="1-1-张量的概念"><a href="#1-1-张量的概念" class="headerlink" title="1.1 张量的概念"></a>1.1 张量的概念</h3><p>​    张量是一个多维数组，是标量、向量、矩阵的多维拓展。可以说，标量是零维张量，向量是一维张量、矩阵是二维张量。在用Pytorch做机器学习时，一般要将数据转化成张量的形式。</p>
+<h3 id="1-2-张量的创建"><a href="#1-2-张量的创建" class="headerlink" title="1.2 张量的创建"></a>1.2 张量的创建</h3><h4 id="1-2-1-直接创建"><a href="#1-2-1-直接创建" class="headerlink" title="1.2.1 直接创建"></a>1.2.1 直接创建</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">torch.tensor(</span><br><span class="line">    data,</span><br><span class="line">    dtype=<span class="literal">None</span>,</span><br><span class="line">    device=<span class="literal">None</span>,</span><br><span class="line">    requires_grad=<span class="literal">False</span>,</span><br><span class="line">    pin_memory=<span class="literal">False</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>data</strong>: 数据, 可以是list, ndarray</li>
+<li><strong>dtype</strong> : 数据类型，默认与data的一致</li>
+<li><strong>device</strong> : 所在设备, cuda/cpu</li>
+<li><strong>requires_grad</strong>：是否需要梯度</li>
+<li><strong>pin_memory</strong>：是否存于锁页内存</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.from_numpy(ndarray)</span><br></pre></td></tr></table></figure>
+
+<p><strong>注</strong>：创建的张量和原来的ndarray共享内存，改变其中一个，另外一个也会改变。</p>
+<h4 id="1-2-2-依据数值创建"><a href="#1-2-2-依据数值创建" class="headerlink" title="1.2.2 依据数值创建"></a>1.2.2 依据数值创建</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">torch.zeros(*size,</span><br><span class="line">            out=<span class="literal">None</span>,</span><br><span class="line">            dtye=<span class="literal">None</span>,</span><br><span class="line">            layout=torch.strided,</span><br><span class="line">            device=<span class="literal">None</span>,</span><br><span class="line">            requires_grad=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>功能</strong>：按照size创建全零张量</p>
+<ul>
+<li><strong>size</strong>: 张量的形状, 如(4, 4)、(4, 200,200)</li>
+<li><strong>out</strong> : 输出的张量</li>
+<li><strong>layout</strong> : 内存中布局形式, 有strided, sparse_coo等</li>
+<li><strong>device</strong> : 所在设备, gpu/cpu</li>
+<li><strong>requires_grad</strong>：是否需要梯度</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">torch.zeros_like(input, </span><br><span class="line">                 dtype=<span class="literal">None</span>, </span><br><span class="line">                 layout=<span class="literal">None</span>, </span><br><span class="line">                 device=<span class="literal">None</span>, </span><br><span class="line">                 requires_grad=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>功能</strong>：依照inout形状创建全零张量</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">torch.ones(*size, </span><br><span class="line">           out=<span class="literal">None</span>, </span><br><span class="line">           dtype=<span class="literal">None</span>, </span><br><span class="line">           layout=torch.strided, </span><br><span class="line">           device=<span class="literal">None</span>, </span><br><span class="line">           requires_grad=<span class="literal">False</span>）</span><br></pre></td></tr></table></figure>
+
+<p><strong>功能</strong>：按照size创建全一张量</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">torch.ones_like(input, </span><br><span class="line">                dtype=<span class="literal">None</span>, </span><br><span class="line">                layout=<span class="literal">None</span>, </span><br><span class="line">                device=<span class="literal">None</span>, </span><br><span class="line">                requires_grad=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>功能</strong>：依照inout形状创建全一张量</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">torch.full(size, </span><br><span class="line">           fill_value, <span class="comment"># 指定数值</span></span><br><span class="line">           out=<span class="literal">None</span>, </span><br><span class="line">           dtype=<span class="literal">None</span>, </span><br><span class="line">           layout=torch.strided, </span><br><span class="line">           device=<span class="literal">None</span>, </span><br><span class="line">           requires_grad=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>功能</strong>：依照size的大小创建指定数值的张量</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">torch.arange(start=<span class="number">0</span>, <span class="comment"># 张量起始值</span></span><br><span class="line">             end, <span class="comment"># 张量结束值</span></span><br><span class="line">             step=<span class="number">1</span>, <span class="comment"># 数列公差</span></span><br><span class="line">             out=<span class="literal">None</span>, </span><br><span class="line">             dtype=<span class="literal">None</span>, </span><br><span class="line">             layout=torch.strided, </span><br><span class="line">             device=<span class="literal">None</span>, </span><br><span class="line">             requires_grad=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>功能</strong>：创建等差的一维张量</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">torch.linspace(start, <span class="comment"># 数列起始值</span></span><br><span class="line">               end, <span class="comment"># 数列结束值</span></span><br><span class="line">               steps=<span class="number">100</span>, <span class="comment"># 数列长度</span></span><br><span class="line">               out=<span class="literal">None</span>, </span><br><span class="line">               dtype=<span class="literal">None</span>, </span><br><span class="line">               layout=torch.strided, </span><br><span class="line">               device=<span class="literal">None</span>, </span><br><span class="line">               requires_grad=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>功能</strong>：创建均分的一维张量</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">torch.logspace(start, </span><br><span class="line">               end, </span><br><span class="line">               steps=<span class="number">100</span>, </span><br><span class="line">               base=<span class="number">10.0</span>, <span class="comment"># 对数的底</span></span><br><span class="line">               out=<span class="literal">None</span>, </span><br><span class="line">               dtype=<span class="literal">None</span>, </span><br><span class="line">               layout=torch.strided, </span><br><span class="line">               device=<span class="literal">None</span>, </span><br><span class="line">               requires_grad=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>功能</strong>：创建对数均分的一维张量</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">torch.eye(n, <span class="comment"># 矩阵行数</span></span><br><span class="line">          m=<span class="literal">None</span>, <span class="comment"># 矩阵列数</span></span><br><span class="line">          out=<span class="literal">None</span>, </span><br><span class="line">          dtype=<span class="literal">None</span>, </span><br><span class="line">          layout=torch.strided, </span><br><span class="line">          device=<span class="literal">None</span>, </span><br><span class="line">          requires_grad=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>功能</strong>：创建单位对角矩阵</p>
+<h4 id="1-2-3-依照概率分布创建张量"><a href="#1-2-3-依照概率分布创建张量" class="headerlink" title="1.2.3 依照概率分布创建张量"></a>1.2.3 依照概率分布创建张量</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">torch.normal(mean, <span class="comment"># 均值</span></span><br><span class="line">             std, <span class="comment"># 标准差</span></span><br><span class="line">             out=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>功能</strong>：生成正态分布(高斯分布)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">torch.normal(mean, </span><br><span class="line">             std, </span><br><span class="line">             out=<span class="literal">None</span>)</span><br><span class="line"></span><br><span class="line">torch.normal(mean, </span><br><span class="line">             std, </span><br><span class="line">             size, <span class="comment"># 都为标量时可以指定数组的大小</span></span><br><span class="line">             out=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>四种可能出现的情况</strong>：</p>
+<p>mean为标量，std为标量</p>
+<p>mean为标量，std为张量</p>
+<p>mean为张量，std为标量</p>
+<p>mean为张量，std为张量</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">torch.randn(*size, <span class="comment"># 张量的形状</span></span><br><span class="line">            out=<span class="literal">None</span>, </span><br><span class="line">            dtype=<span class="literal">None</span>, </span><br><span class="line">            layout=torch.strided, </span><br><span class="line">            device=<span class="literal">None</span>, </span><br><span class="line">            requires_grad=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>功能</strong>：生成标准正态分布</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">torch.rand(*size, </span><br><span class="line">           out=<span class="literal">None</span>, </span><br><span class="line">           dtype=<span class="literal">None</span>, </span><br><span class="line">           layout=torch.strided, </span><br><span class="line">           device=<span class="literal">None</span>, </span><br><span class="line">           requires_grad=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">torch.rand_like(input, </span><br><span class="line">           out=<span class="literal">None</span>, </span><br><span class="line">           dtype=<span class="literal">None</span>, </span><br><span class="line">           layout=torch.strided, </span><br><span class="line">           device=<span class="literal">None</span>, </span><br><span class="line">           requires_grad=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>功能</strong>：在区间[0,1)上生成均匀分布</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">torch.randint(low=<span class="number">0</span>, </span><br><span class="line">              high, </span><br><span class="line">              size, </span><br><span class="line">              out=<span class="literal">None</span>, </span><br><span class="line">              dtype=<span class="literal">None</span>, </span><br><span class="line">              layout=torch.strided, </span><br><span class="line">              device=<span class="literal">None</span>, </span><br><span class="line">              requires_grad=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">torch.randint_like(low=<span class="number">0</span>, </span><br><span class="line">              high, </span><br><span class="line">              input, </span><br><span class="line">              out=<span class="literal">None</span>, </span><br><span class="line">              dtype=<span class="literal">None</span>, </span><br><span class="line">              layout=torch.strided, </span><br><span class="line">              device=<span class="literal">None</span>, </span><br><span class="line">              requires_grad=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>功能</strong>：在区间[low,high)上生成均匀分布</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">torch.randperm(n, <span class="comment"># 张量的长度</span></span><br><span class="line">               out=<span class="literal">None</span>,</span><br><span class="line">               dtype=torch.int64,</span><br><span class="line">               layout=torch.strided,</span><br><span class="line">               device=<span class="literal">None</span>,</span><br><span class="line">               requires_grad=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>功能</strong>：生成0到n-1的随机排列</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">torch.bernoulli(input, <span class="comment"># 概率值</span></span><br><span class="line">                *, </span><br><span class="line">                generator=<span class="literal">None</span>, </span><br><span class="line">                out=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>功能</strong>：以inout为概率，生成伯努利分布(0,1分布，两点分布)</p>
+<h2 id="2-张量的操作和数学运算"><a href="#2-张量的操作和数学运算" class="headerlink" title="2. 张量的操作和数学运算"></a>2. 张量的操作和数学运算</h2><h3 id="2-1-张量的操作"><a href="#2-1-张量的操作" class="headerlink" title="2.1 张量的操作"></a>2.1 张量的操作</h3><h4 id="2-1-1-张量的拼接与切分"><a href="#2-1-1-张量的拼接与切分" class="headerlink" title="2.1.1 张量的拼接与切分"></a>2.1.1 张量的拼接与切分</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">torch.cat(tensors, <span class="comment"># 张量</span></span><br><span class="line">          dim=<span class="number">0</span>, <span class="comment"># 拼接维度</span></span><br><span class="line">          out=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>功能</strong>：将张量按照维度dim进行拼接</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">torch.stack(tensors, </span><br><span class="line">            dim=<span class="number">0</span>, </span><br><span class="line">            out=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>功能</strong>：在新创建的维度dim上进行拼接</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">torch.chunk(input, <span class="comment"># 输入的张量</span></span><br><span class="line">            chunks, <span class="comment"># 切分的份数</span></span><br><span class="line">            dim=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>功能</strong>：将张量按照维度dim进行平均切分</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">torch.split(tensor, <span class="comment"># 要切分的张量</span></span><br><span class="line">            split_size_or_sections, <span class="comment"># 为int时表示每一份的长度，为list时，按照list元素进行切分</span></span><br><span class="line">            dim=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-1-2-张量索引"><a href="#2-1-2-张量索引" class="headerlink" title="2.1.2 张量索引"></a>2.1.2 张量索引</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">torch.index_select(input, <span class="comment"># 要索引的张量</span></span><br><span class="line">                   dim,  <span class="comment"># 要索引的维度</span></span><br><span class="line">                   index, <span class="comment"># 要索引数据的序号</span></span><br><span class="line">                   out=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>功能</strong>：在维度dim上，按照index索引数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">torch.masked_select(input, <span class="comment"># 要索引的张量</span></span><br><span class="line">                    mask, <span class="comment"># 与张量同类型的布尔类型张量</span></span><br><span class="line">                    out=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>功能</strong>：按照mask中的True进行索引</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">torch.reshape(input, </span><br><span class="line">              shape) <span class="comment"># 新张量的形状</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>功能</strong>：变化张量的形状，注：当张量在内存中是连续时，新张量与input共享数据内存</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">torch.transpose(input, <span class="comment"># 输入的张量</span></span><br><span class="line">                dim0, <span class="comment"># 要交换的维度</span></span><br><span class="line">                dim1) <span class="comment"># 要交换的维度</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>功能</strong>：交换张量的两个维度</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.t(input)</span><br></pre></td></tr></table></figure>
+
+<p><strong>功能</strong>：二维张量转置</p>
+<h4 id="2-1-3-张量变换"><a href="#2-1-3-张量变换" class="headerlink" title="2.1.3 张量变换"></a>2.1.3 张量变换</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">torch.squeeze(input, </span><br><span class="line">              dim=<span class="literal">None</span>, </span><br><span class="line">              out=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>功能</strong>：压缩长度为1的维度</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">torch.usqueeze(input, </span><br><span class="line">               dim, <span class="comment"># 拓展的维度</span></span><br><span class="line">               out=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>功能</strong>：按照dim创造维度</p>
+<h3 id="2-2-张量的数学运算"><a href="#2-2-张量的数学运算" class="headerlink" title="2.2 张量的数学运算"></a>2.2 张量的数学运算</h3><p><strong>加减乘除</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">torch.add()</span><br><span class="line">torch.addcdiv()</span><br><span class="line">torch.addcmul()</span><br><span class="line">torch.sub()</span><br><span class="line">torch.div()</span><br><span class="line">torch.mul()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">torch.add(input, <span class="comment"># 第一个张量</span></span><br><span class="line">          alpha=<span class="number">1</span>, <span class="comment"># 乘项因子</span></span><br><span class="line">          other, <span class="comment"># 第二个张量</span></span><br><span class="line">          out=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>功能</strong>：逐元素加法计算</p>
+<p><img src="https://img-blog.csdnimg.cn/20200820095246259.png#pic_center" alt></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">torch.addcmul(input, <span class="comment"># 第一个张量</span></span><br><span class="line">              value=<span class="number">1</span>, <span class="comment"># 乘项因子</span></span><br><span class="line">              tensor1, <span class="comment"># 第二个张量</span></span><br><span class="line">              tensor2, <span class="comment"># 第三个张量</span></span><br><span class="line">              out=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>功能</strong>：逐元素计算</p>
+<p><img src="https://img-blog.csdnimg.cn/20200820095338259.png#pic_center" alt></p>
+<p><strong>对数、指数、幂函数</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">torch.log(input, out=<span class="literal">None</span>)</span><br><span class="line">torch.log10(input, out=<span class="literal">None</span>)</span><br><span class="line">torch.log2(input, out=<span class="literal">None</span>)</span><br><span class="line">torch.exp(input, out=<span class="literal">None</span>)</span><br><span class="line">torch.pow()</span><br></pre></td></tr></table></figure>
+
+<p><strong>三角函数</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">torch.abs(input, out=<span class="literal">None</span>)</span><br><span class="line">torch.acos(input, out=<span class="literal">None</span>)</span><br><span class="line">torch.cosh(input, out=<span class="literal">None</span>)</span><br><span class="line">torch.cos(input, out=<span class="literal">None</span>)</span><br><span class="line">torch.asin(input, out=<span class="literal">None</span>)</span><br><span class="line">torch.atan(input, out=<span class="literal">None</span>)</span><br><span class="line">torch.atan2(input, other, out=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-计算图"><a href="#3-计算图" class="headerlink" title="3.计算图"></a>3.计算图</h2><h3 id="3-1-计算图的概念"><a href="#3-1-计算图的概念" class="headerlink" title="3.1 计算图的概念"></a>3.1 计算图的概念</h3><p><strong>计算图</strong>是用来描述运算的有向无环图。计算图有两个主要元素：<strong>节点</strong>和<strong>边</strong>，结点表示数据，如向量，矩阵，张量</p>
+<p>边表示运算，如加减乘除卷积等</p>
+<p>叶子节点：用户创建的节点是叶子节点，就是输入的数据</p>
+<h3 id="3-2-静态图和动态图"><a href="#3-2-静态图和动态图" class="headerlink" title="3.2 静态图和动态图"></a>3.2 静态图和动态图</h3><p><strong>静态图</strong>：先搭建图，后运算      <strong>特点</strong>：高效但不灵活      <strong>代表框架</strong>：Tensorflow</p>
+<p><strong>动态图</strong>：运算与搭建同时进行      <strong>特点</strong>：灵活、易于调节      <strong>代表框架</strong>：Pytorch</p>
+<h2 id="4-autograd"><a href="#4-autograd" class="headerlink" title="4.autograd"></a>4.autograd</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">torch.autograd.backward(tensors,<span class="comment"># 用于求导的张量，如loss</span></span><br><span class="line">                        grad_tensors=<span class="literal">None</span>, <span class="comment"># 多梯度权重</span></span><br><span class="line">                        retain_graph=<span class="literal">None</span>, <span class="comment"># 保存计算图</span></span><br><span class="line">                        create_graph=<span class="literal">False</span>) <span class="comment"># 创建导数计算图，用于高阶求导</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>功能</strong>：自动求取梯度</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">torch.autograd.grad(outputs, <span class="comment"># 用于求导的张量，如loss</span></span><br><span class="line">                    inputs, <span class="comment"># 需要梯度的张量</span></span><br><span class="line">                    grad_outputs=<span class="literal">None</span>,</span><br><span class="line">                    retain_graph=<span class="literal">None</span>,</span><br><span class="line">                    create_graph=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>功能</strong>：自动求取梯度</p>
+<p><strong>注意</strong>：1.梯度不自动清零，每次求取完后需要手动清零</p>
+<p>​            2.依赖于叶子结点的结点，requires_grad默认为True</p>
+<p>​            3.叶子结点不可执行in-place(原位操作：在原来的内存上改变变量的值)</p>
+<h2 id="5-线性回归与逻辑回归"><a href="#5-线性回归与逻辑回归" class="headerlink" title="5.线性回归与逻辑回归"></a>5.线性回归与逻辑回归</h2><h3 id="5-1-线性回归"><a href="#5-1-线性回归" class="headerlink" title="5.1 线性回归"></a>5.1 线性回归</h3><p>线性回归是分析一个变量(<strong>因变量</strong>)与另外一个或多个变量(<strong>自变量</strong>)之间的<strong>线性</strong>关系的方法。例如：</p>
+<p><img src="https://img-blog.csdnimg.cn/202008200955034.png#pic_center" alt></p>
+<p><strong>求解步骤</strong>：</p>
+<ul>
+<li><p>确定模型</p>
+<p><img src="https://img-blog.csdnimg.cn/20200820095628379.png#pic_center" alt></p>
+</li>
+<li><p>选择损失函数</p>
+<p><img src="https://img-blog.csdnimg.cn/20200820093136233.png#pic_center" alt></p>
+</li>
+<li><p>求解梯度并更新w,b</p>
+<p><img src="https://img-blog.csdnimg.cn/20200820095730991.png#pic_center" alt></p>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200726224808698.png?" alt></p>
+<h3 id="5-2-逻辑回归"><a href="#5-2-逻辑回归" class="headerlink" title="5.2 逻辑回归"></a>5.2 逻辑回归</h3><p>逻辑回归是<strong>线性</strong>的<strong>二分类</strong>模型,</p>
+<p><strong>模型表达式</strong>：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200820094110441.png#pic_center" alt></p>
+<p>f(x)称为sigmoid函数</p>
+<p><strong>分类标准</strong>：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200820094344736.png#pic_center" alt></p>
+<p>线性回归是分析自变量x与因变量y(<strong>标量</strong>)之间关系的方法</p>
+<p>逻辑回归是分析自变量x与因变量y(<strong>概率</strong>)之间关系的方法</p>
+<p><strong>推导</strong>：由对数几率回归</p>
+<p><img src="https://img-blog.csdnimg.cn/20200820094452573.png#pic_center" alt></p>
+<p><img src="https://img-blog.csdnimg.cn/2020072622483447.png?" alt></p>
+
+            
+                
+
+            
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> Donate
+            </a>
+        </div>
+        
+        <div class="post-tags">Tags：
+            
+        </div>
+        
+    </article>
+    
+        <p style="text-align: center">This article just represents my own viewpoint. If there is something wrong, please correct me.</p>
+    
+    
+    
+
+</div>
+
+<script src="/js/busuanzi.pure.mini.js"></script>
+
+
+
+        </div><!-- end #main-->
+    </div><!-- end #body -->
+    <footer class="footer">
+    <div class="footer-inner" style="text-align: center">
+        <p>
+            <a href="/about"  title="About">About</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!-- 自定义链接 -->
+            <a href="/help" title="Help" >Help</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/links" title="Links">Links</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/sitemap.xml" title="SiteMap">SiteMap</a>
+        </p>
+        <p>
+            Has been established&nbsp<a href="/timeline" id="siteBuildingTime"></a>&nbspDays，<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="licence">Based on Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a><br/>
+            ©2017-<span id="cpYear"></span> Based on&nbsp<a href="http://hexo.io" target="_blank" rel="nofollow">Hexo</a>
+            ，Theme by&nbsp&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank" rel="bookmark">JSimple</a>
+            ，Author&nbsp<a href="https://shuoit.net" target="_blank" rel="friend">纠结伦</a>
+            ，Hosted by <a href="https://pages.github.com/" target="_blank" rel="nofollow">GitHub Pages</a>
+        </p>
+    </div>
+</footer>
+
+<script src="/js/SimpleCore.js"></script>
+
+
+</div>
+<!-- search pop -->
+<div class="popup search-popup local-search-popup">
+    <div class="local-search-header clearfix">
+        <span class="search-icon">
+            <i class="fa fa-search"></i>
+        </span>
+        <span class="popup-btn-close">
+            <i class="fa fa-times-circle"></i>
+        </span>
+        <div class="local-search-input-wrapper">
+            <input id="local-search-input"
+                   spellcheck="false"
+                   type="text"
+                   autocomplete="off"
+                   placeholder="Input query keywords here..."/>
+        </div>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+<div class="fixed-btn">
+    <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
+</div>
+<script>
+    $(function () {
+        var jsi_config = {
+            buildingTime: '01/20/2018',
+            current: $('.post-tags').length > 0 ? 'post' : 'archive',
+            snsQRCode: '/images/sns-qrcode.png',
+            donateImg: '/images/donate-qr.png',
+            localSearch: { dbPath: '' },
+            readMode: 'day'
+        };
+        
+        SimpleCore.init(jsi_config);
+        
+    });
+</script>
+</body>
+</html>
